@@ -19,13 +19,16 @@
       <button class="btn btn-primary" type="button" ng-click="search.showMatchedItems(search.searchTerm);">
         Narrow It Down For Me!
       </button>
-      <div ng-if="search.nothingFound">
-        Nothing Found
-      </div>
     </div>
 
-    <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+    <div ng-if="search.nothingFound" style="clear:both;">
+      Nothing Found
+    </div>
+    <!-- <found-items found-items="search.found" on-remove="...."></found-items> -->
+    <found-items
+      found="search.found"
+      on-remove="search.removeItem(index)">
+    </found-items>
   </div>
 
 </body>
